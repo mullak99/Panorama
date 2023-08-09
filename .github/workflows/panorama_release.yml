@@ -1,0 +1,54 @@
+name: Panorama Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+env:
+  JDK_VERSION: 17
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: ${{ env.JDK_VERSION }}
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build
+        
+      - name: Get branch name
+        id: branch_name
+        run: echo "BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_ENV
+        shell: bash  
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: gh-actions/gh-action-create-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Panorama ${{ github.ref }}-${{ env.BRANCH_NAME }}
+          token: ${{ secrets.TOKEN_GITHUB }}
+
+      - name: Upload Release Assets
+        run: |
+          for jar_file in ./build/libs/*.jar; do
+            echo "Uploading $jar_file"
+            curl \
+              --progress-bar \
+              --data-binary @"$jar_file" \
+              -H "Content-Type: application/zip" \
+              -H "Authorization: Bearer ${{ secrets.TOKEN_GITHUB }}" \
+              ${{ steps.create_release.outputs.upload_url }}?name=$(basename $jar_file)
+          done
