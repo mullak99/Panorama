@@ -1,0 +1,15 @@
+{
+	"text.autoconfig.panorama.title": "Panorama Config",
+	"text.autoconfig.panorama.option.lockScreenshotPitch": "Lock Panoramic Screenshot Pitch (U,D) to 0",
+	"text.autoconfig.panorama.option.lockScreenshotYaw": "Lock Panoramic Screenshot Yaw (L,R) to 0",
+	"text.autoconfig.panorama.option.screenshotIndividually": "Take Panoramic Screenshot Images Individually",
+	"text.autoconfig.panorama.option.takeScreenshotAsync": "Run Asynchronously",
+	"text.autoconfig.panorama.option.screenshotsCompletedDelay": "Final Screenshot Delay",
+	"text.autoconfig.panorama.option.screenshotDelay": "Screenshot Delay",
+	"text.autoconfig.panorama.option.resizeExportedImage": "Resize Screenshot",
+	"text.autoconfig.panorama.option.resizeImageRes": "Screenshot Resolution",
+	"panorama.panoramic_screenshot.saved": "Panorama taken and saved at %s directory",
+	"panorama.panoramic_screenshot.broke": "Panoramic Screenshot took too long and was stopped!",
+	"panorama.panoramic_screenshot.taken": "Panorama #%s taken at %s",
+	"key.panorama.panoramic_screenshot": "Take Panoramic Screenshot"
+}

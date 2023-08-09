@@ -1,36 +1,37 @@
 {
 	"schemaVersion": 1,
-	"id": "vistas",
+	"id": "panorama",
 	"version": "${version}",
-	"name": "Vistas",
-	"description": "A tool for customizing the Panorama!",
+	"name": "Panorama",
+	"description": "A mod for taking Minecraft panoramas",
 	"authors": [
 		"LudoCrypt",
 		"Prospector",
-		"TerraformersMC"
+		"TerraformersMC",
+		"mullak99"
 	],
-	"contact": {
-		"homepage": "https://www.curseforge.com/minecraft/mc-mods/vistas",
-		"sources": "https://github.com/TerraformersMC/Vistas",
-		"issues": "https://github.com/TerraformersMC/Vistas/issues"
-	},
 	"license": "LGPL-3.0-only",
-	"icon": "assets/vistas/icon.png",
+	"icon": "assets/panorama/icon.png",
 	"environment": "client",
 	"entrypoints": {
 		"client": [
-			"com.terraformersmc.vistas.Vistas"
+			"co.uk.mullak99.panorama.Panorama"
 		],
 		"modmenu": [
-			"com.terraformersmc.vistas.config.VistasModMenuConfig"
+			"co.uk.mullak99.panorama.config.PanoramaModMenuConfig"
 		]
 	},
 	"mixins": [
-		"vistas.mixins.json"
+		"panorama.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.13.3",
-		"fabric": "*",
-		"minecraft": ">=1.19.4 <1.20"
+		"fabricloader": ">=0.14.21",
+		"fabric": ">=0.83.0"
+	},
+	"recommends": {
+		"modmenu": ">=7.0.0"
+	},
+	"breaks": {
+		"vistas": "*"
 	}
 }
