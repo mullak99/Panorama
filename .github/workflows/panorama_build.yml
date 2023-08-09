@@ -1,6 +1,7 @@
 name: Panorama Build
 
 on:
+  workflow_dispatch:
   push:
     branches: [ 1.20 ]
     paths:
