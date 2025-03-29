@@ -3,16 +3,16 @@ name: Panorama Build
 on:
   workflow_dispatch:
   push:
-    branches: [ 1.20 ]
+    branches: [1.21]
     paths:
-      - 'src/**'
+      - "src/**"
   pull_request:
-    branches: [ 1.20 ]
+    branches: [1.21]
     paths:
-      - 'src/**'
+      - "src/**"
 
 env:
-  JDK_VERSION: 17
+  JDK_VERSION: 21
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          distribution: 'adopt'
+          distribution: "adopt"
           java-version: ${{ env.JDK_VERSION }}
 
       - name: Grant execute permission for gradlew
